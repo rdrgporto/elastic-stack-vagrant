@@ -69,7 +69,7 @@ apt-get install -y filebeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Filebeat
 echo "[$DATE] [Info] [Filebeat] Copy config, reload daemon and restart Filebeat..."
-cp -R /vagrant/filebeat/* /etc/filebeat/conf
+cp -R /vagrant/filebeat/* /etc/filebeat
 systemctl daemon-reload
 
 # Install Packetbeat
@@ -79,7 +79,7 @@ apt-get install -y packetbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Packetbeat
 echo "[$DATE] [Info] [Packetbeat] Copy config, reload daemon and restart Packetbeat..."
-cp -R /vagrant/packetbeat/* /etc/packetbeat/conf
+cp -R /vagrant/packetbeat/* /etc/packetbeat
 systemctl daemon-reload
 
 # Install Metricbeat
@@ -88,7 +88,7 @@ apt-get install -y metricbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Metricbeat
 echo "[$DATE] [Info] [Metricbeat] Copy config, reload daemon and restart Metricbeat..."
-cp -R /vagrant/metricbeat/* /etc/metricbeat/conf
+cp -R /vagrant/metricbeat/* /etc/metricbeat
 systemctl daemon-reload
 
 # Install Heartbeat
@@ -97,7 +97,7 @@ apt-get install -y heartbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Heartbeat
 echo "[$DATE] [Info] [Heartbeat] Copy config, reload daemon and restart Heartbeat..."
-cp -R /vagrant/heartbeat/* /etc/heartbeat/conf
+cp -R /vagrant/heartbeat/* /etc/heartbeat
 systemctl daemon-reload
 
 # Clean unneeded packages

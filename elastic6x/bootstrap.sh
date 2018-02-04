@@ -24,7 +24,7 @@ then
 fi
 
 # Install Elastic Repository
-if ! grep -q "^deb .*5.x" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+if ! grep -q "^deb .*6.x" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     echo "[$DATE] [Info] [System] Installing Elastic Repository..."
     wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - &> /dev/null
     apt-get install apt-transport-https &> /dev/null
@@ -69,7 +69,7 @@ apt-get install -y filebeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Filebeat
 echo "[$DATE] [Info] [Filebeat] Copy config, reload daemon and restart Filebeat..."
-cp -R /vagrant/filebeat/* /etc/filebeat/conf
+cp -R /vagrant/filebeat/* /etc/filebeat/
 systemctl daemon-reload
 
 # Install Packetbeat
@@ -79,7 +79,7 @@ apt-get install -y packetbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Packetbeat
 echo "[$DATE] [Info] [Packetbeat] Copy config, reload daemon and restart Packetbeat..."
-cp -R /vagrant/packetbeat/* /etc/packetbeat/conf
+cp -R /vagrant/packetbeat/* /etc/packetbeat
 systemctl daemon-reload
 
 # Install Metricbeat
@@ -88,16 +88,16 @@ apt-get install -y metricbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Metricbeat
 echo "[$DATE] [Info] [Metricbeat] Copy config, reload daemon and restart Metricbeat..."
-cp -R /vagrant/metricbeat/* /etc/metricbeat/conf
+cp -R /vagrant/metricbeat/* /etc/metricbeat
 systemctl daemon-reload
 
 # Install Heartbeat
 echo "[$DATE] [Info] [Heartbeat] Installing Heartbeat..."
-apt-get install -y heartbeat=$VERSION &> /dev/null
+apt-get install -y heartbeat-elastic=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Heartbeat
 echo "[$DATE] [Info] [Heartbeat] Copy config, reload daemon and restart Heartbeat..."
-cp -R /vagrant/heartbeat/* /etc/heartbeat/conf
+cp -R /vagrant/heartbeat/* /etc/heartbeat/
 systemctl daemon-reload
 
 # Install Auditbeat
@@ -106,7 +106,7 @@ apt-get install -y auditbeat=$VERSION &> /dev/null
 
 # Copy config, reload daemon and restart Auditbeat
 echo "[$DATE] [Info] [Auditbeat] Copy config, reload daemon and restart Auditbeat..."
-cp -R /vagrant/auditbeat/* /etc/auditbeat/conf
+cp -R /vagrant/auditbeat/* /etc/auditbeat
 systemctl daemon-reload
 
 # Clean unneeded packages
