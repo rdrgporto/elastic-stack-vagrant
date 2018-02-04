@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    # Configure VM
+    config.vm.box = "ubuntu/xenial64"
+    config.ssh.insert_key = false
+    config.vm.network "public_network"
+
+    # Configure provisioning
+    config.vm.provision "shell", path: "bootstrap.sh"
+    # config.vm.provision "shell", path: "install_xpack.sh"
+
+    # Configure network ports
+    config.vm.network "forwarded_port", host: 9200, guest: 9200 # Elasticsearch
+    config.vm.network "forwarded_port", host: 9300, guest: 9300 # Elasticsearch
+    config.vm.network "forwarded_port", host: 5601, guest: 5601 # Kibana
+    config.vm.network "forwarded_port", host: 5601, guest: 5044 # Logstash
+
+    # Configure Virtualbox
+    config.vm.provider "virtualbox" do |vb, override|
+        vb.cpus = 1
+        vb.memory = 4096
+        vb.gui = false
+        vb.name = "elastic6x"
+        override.vm.synced_folder "./provision", "/vagrant"
+    end
+
+end
