@@ -40,5 +40,5 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
     vagrant up : Starts the machine
     vagrant ssh : ssh to the machine
-    vagrant halt : shut down the machine
-    vagrant provision : applies shell script
+    vagrant halt : Shutdown the machine
+    vagrant provision : Apply shell script
