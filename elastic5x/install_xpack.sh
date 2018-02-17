@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # Install X-Pack
 echo "[$DATE] [Info] [X-Pack] Installing X-Pack..."
-/var/lib/dpkg/info/ca-certificates-java.postinst configure
+/var/lib/dpkg/info/ca-certificates-java.postinst configure &> /dev/null
 
 echo "[$DATE] [Info] [X-Pack] Installing X-Pack in Elasticsearch..."
 cd /usr/share/elasticsearch
