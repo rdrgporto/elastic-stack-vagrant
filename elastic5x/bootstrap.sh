@@ -4,7 +4,7 @@ DATE=`date '+%Y-%m-%d %H:%M:%S'`
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$DATE] [Info] [System] ${addr%/*}; done`
 
 # Set package version
-VERSION="5.6.7"
+VERSION="5.6.8"
 
 # Non-Interactive Installation
 export DEBIAN_FRONTEND=noninteractive
