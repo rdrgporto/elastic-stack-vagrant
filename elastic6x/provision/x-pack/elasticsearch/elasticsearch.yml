@@ -90,3 +90,6 @@ http.port: 9200
 # ---------------------------------- X-Pack ------------------------------------
 #
 xpack.security.enabled: false
+xpack.monitoring.enabled: true
+xpack.ml.enabled: false
+xpack.watcher.enabled: true
