@@ -34,6 +34,10 @@ elasticsearch.url: "http://localhost:9200"
 
 # Configuration X-Pack Security
 xpack.security.enabled: false
+xpack.monitoring.enabled: true
+xpack.graph.enabled: true
+xpack.ml.enabled: false
+xpack.reporting.enabled: true
 
 # If your Elasticsearch is protected with basic authentication, these settings provide
 # the username and password that the Kibana server uses to perform maintenance on the Kibana
