@@ -4,7 +4,7 @@ DATE=`date '+%Y-%m-%d %H:%M:%S'`
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$DATE] [Info] [System] ${addr%/*}; done`
 
 # Set package version
-VERSION="6.5.0"
+VERSION="6.5.4"
 
 # Non-Interactive Installation
 export DEBIAN_FRONTEND=noninteractive
@@ -56,7 +56,7 @@ service kibana restart
 echo "[$DATE] [Info] [Logstash] Installing Logstash..."
 apt-get install -y logstash=1:$VERSION-1 &> /dev/null
 
-# Copy config, reload daemon and restart Logstash
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Logstash] Copy config, reload daemon and restart Logstash..."
 cp -R /vagrant/logstash/* /etc/logstash/conf.d/
 systemctl daemon-reload
@@ -67,7 +67,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Filebeat] Installing Filebeat..."
 apt-get install -y filebeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon and restart Filebeat
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Filebeat] Copy config, reload daemon and restart Filebeat..."
 cp -R /vagrant/filebeat/* /etc/filebeat/
 systemctl daemon-reload
@@ -86,7 +86,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Metricbeat] Installing Metricbeat..."
 apt-get install -y metricbeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon and restart Metricbeat
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Metricbeat] Copy config, reload daemon and restart Metricbeat..."
 cp -R /vagrant/metricbeat/* /etc/metricbeat
 systemctl daemon-reload
@@ -95,7 +95,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Heartbeat] Installing Heartbeat..."
 apt-get install -y heartbeat-elastic=$VERSION &> /dev/null
 
-# Copy config, reload daemon and restart Heartbeat
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Heartbeat] Copy config, reload daemon and restart Heartbeat..."
 cp -R /vagrant/heartbeat/* /etc/heartbeat/
 systemctl daemon-reload
@@ -104,7 +104,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Auditbeat] Installing Auditbeat..."
 apt-get install -y auditbeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon and restart Auditbeat
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Auditbeat] Copy config, reload daemon and restart Auditbeat..."
 cp -R /vagrant/auditbeat/* /etc/auditbeat
 systemctl daemon-reload
