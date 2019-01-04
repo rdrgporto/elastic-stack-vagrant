@@ -56,7 +56,7 @@ service kibana restart
 echo "[$DATE] [Info] [Logstash] Installing Logstash..."
 apt-get install -y logstash=1:$VERSION-1 &> /dev/null
 
-# Copy config, reload daemon
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Logstash] Copy config, reload daemon and restart Logstash..."
 cp -R /vagrant/logstash/* /etc/logstash/conf.d/
 systemctl daemon-reload
@@ -67,7 +67,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Filebeat] Installing Filebeat..."
 apt-get install -y filebeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Filebeat] Copy config, reload daemon and restart Filebeat..."
 cp -R /vagrant/filebeat/* /etc/filebeat
 systemctl daemon-reload
@@ -77,7 +77,7 @@ echo "[$DATE] [Info] [Packetbeat] Installing Packetbeat..."
 apt-get install -y libpcap0.8 &> /dev/null
 apt-get install -y packetbeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Packetbeat] Copy config, reload daemon and restart Packetbeat..."
 cp -R /vagrant/packetbeat/* /etc/packetbeat
 systemctl daemon-reload
@@ -86,7 +86,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Metricbeat] Installing Metricbeat..."
 apt-get install -y metricbeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Metricbeat] Copy config, reload daemon and restart Metricbeat..."
 cp -R /vagrant/metricbeat/* /etc/metricbeat
 systemctl daemon-reload
@@ -95,7 +95,7 @@ systemctl daemon-reload
 echo "[$DATE] [Info] [Heartbeat] Installing Heartbeat..."
 apt-get install -y heartbeat=$VERSION &> /dev/null
 
-# Copy config, reload daemon
+# Copy config and reload daemon
 echo "[$DATE] [Info] [Heartbeat] Copy config, reload daemon and restart Heartbeat..."
 cp -R /vagrant/heartbeat/* /etc/heartbeat
 systemctl daemon-reload
