@@ -22,23 +22,25 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product | Version |
 |--|--|
-| Elasticsearch |  5.6.12 |
-| Kibana |  5.6.12 |
-| Logstash |  5.6.12 |
-| Beats |  5.6.12 |
+| Elasticsearch |  5.6.14 |
+| Kibana |  5.6.14 |
+| Logstash |  5.6.14 |
+| Beats |  5.6.14 |
 
 ## Versions 6x
 
 | Product | Version |
 |--|--|
-| Elasticsearch |  6.5.0 |
-| Kibana |  6.5.0 |
-| Logstash |  6.5.0 |
-| Beats |  6.5.0 |
+| Elasticsearch |  6.5.4 |
+| Kibana |  6.5.4 |
+| Logstash |  6.5.4 |
+| Beats |  6.5.4 |
 
 ## Vagrant Commands
 
-    vagrant up : Starts the machine
-    vagrant ssh : ssh to the machine
-    vagrant halt : Shutdown the machine
-    vagrant provision : Apply shell script
+```
+vagrant up : Starts the machine
+vagrant ssh : ssh to the machine
+vagrant halt : Shutdown the machine
+vagrant provision : Apply shell script
+```
