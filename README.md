@@ -22,19 +22,19 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product | Version |
 |--|--|
-| Elasticsearch |  5.6.14 |
-| Kibana |  5.6.14 |
-| Logstash |  5.6.14 |
-| Beats |  5.6.14 |
+| Elasticsearch |  5.6.16 |
+| Kibana |  5.6.16 |
+| Logstash |  5.6.16 |
+| Beats |  5.6.16 |
 
 ## Versions 6x
 
 | Product | Version |
 |--|--|
-| Elasticsearch |  6.5.4 |
-| Kibana |  6.5.4 |
-| Logstash |  6.5.4 |
-| Beats |  6.5.4 |
+| Elasticsearch |  6.6.2 |
+| Kibana |  6.6.2 |
+| Logstash |  6.6.2 |
+| Beats |  6.6.2 |
 
 ## Vagrant Commands
 
