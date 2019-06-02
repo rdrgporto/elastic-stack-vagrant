@@ -1,7 +1,6 @@
 ## Welcome to Elastic Stack Vagrant!
 
 ### First Steps
-
 ------
 
 - Download **Vagrant** : [Link](https://www.vagrantup.com/downloads.html)
@@ -9,10 +8,9 @@
 - Download **Virtualbox**: [Link](https://www.virtualbox.org/wiki/Downloads)
 
 ### Up and SSH
-
 ------
 
-Download repository and run ***\*Vagrant\****. Example:
+Download repository and run **Vagrant**. Example:
 
 ```bash
 cd /home/rdrgporto/elk-vagrant/elastic6x/
@@ -28,7 +26,6 @@ vagrant ssh
 Moreover, there are two kinds of network, **internal** and **public**. You can use **public network** in order to login via any kind of **ssh client** ([Putty](https://www.putty.org/), [MobaXterm](https://mobaxterm.mobatek.net/), [Termius](https://www.termius.com/)).
 
 ### Versions
-
 ------
 
 **5x**
@@ -59,7 +56,6 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 | Beats         | 7.1.1   |
 
 ### Vagrant Commands
-
 ------
 
 ```bash
