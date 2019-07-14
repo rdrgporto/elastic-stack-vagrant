@@ -41,19 +41,19 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 6.8.0   |
-| Kibana        | 6.8.0   |
-| Logstash      | 6.8.0   |
-| Beats         | 6.8.0   |
+| Elasticsearch | 6.8.1   |
+| Kibana        | 6.8.1   |
+| Logstash      | 6.8.1   |
+| Beats         | 6.8.1   |
 
 **7x**
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 7.1.1   |
-| Kibana        | 7.1.1   |
-| Logstash      | 7.1.1   |
-| Beats         | 7.1.1   |
+| Elasticsearch | 7.2.0   |
+| Kibana        | 7.2.0   |
+| Logstash      | 7.2.0   |
+| Beats         | 7.2.0   |
 
 ### Vagrant Commands
 ------
