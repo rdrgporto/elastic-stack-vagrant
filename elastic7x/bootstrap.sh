@@ -9,7 +9,7 @@ DATE() {
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$(DATE)] [Info] [System] ${addr%/*}; done`
 
 # Set package version
-VERSION="7.2.0"
+VERSION="7.3.0"
 
 # Non-Interactive Installation
 export DEBIAN_FRONTEND=noninteractive
