@@ -13,11 +13,11 @@
 Download repository and run **Vagrant**. Example:
 
 ```bash
-cd /home/rdrgporto/elk-vagrant/elastic6x/
+cd /home/rdrgporto/elk-vagrant/elastic7x/
 vagrant up
 ```
 
-If everything was fine, login via ssh:
+If everything was fine, login via **SSH** (password: vagrant):
 
 ```bash
 vagrant ssh
@@ -41,19 +41,19 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 6.8.6   |
-| Kibana        | 6.8.6   |
-| Logstash      | 6.8.6   |
-| Beats         | 6.8.6   |
+| Elasticsearch | 6.8.7   |
+| Kibana        | 6.8.7   |
+| Logstash      | 6.8.7   |
+| Beats         | 6.8.7   |
 
 **7x**
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 7.5.2   |
-| Kibana        | 7.5.2   |
-| Logstash      | 7.5.2   |
-| Beats         | 7.5.2   |
+| Elasticsearch | 7.6.1   |
+| Kibana        | 7.6.1   |
+| Logstash      | 7.6.1  |
+| Beats         | 7.6.1   |
 
 ### Vagrant Commands
 ------
