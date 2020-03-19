@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
     config.vm.network "public_network"
 
     # Configure provisioning
+    config.vm.provision "file", source: "provision", destination: "/vagrant"
     config.vm.provision "shell", path: "bootstrap.sh"
 
     # Configure network ports
@@ -23,7 +24,6 @@ Vagrant.configure("2") do |config|
         vb.memory = 4096
         vb.gui = false
         vb.name = "elastic7x"
-        override.vm.synced_folder "./provision", "/vagrant"
     end
 
 end
