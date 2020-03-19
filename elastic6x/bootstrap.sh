@@ -12,7 +12,7 @@ DATE() {
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$(DATE)] [Info] [System] ${addr%/*}; done`
 
 # Set package version
-VERSION="6.8.6"
+VERSION="6.8.7"
 
 # Set provision folder
 PROVISION_FOLDER="/vagrant"
@@ -74,28 +74,23 @@ systemctl enable logstash &> /dev/null
 # Install Filebeat
 echo "[$(DATE)] [Info] [Filebeat] Installing Filebeat..."
 apt -y install filebeat=$VERSION &> /dev/null
-systemctl enable filebeat &> /dev/null
 
 # Install Packetbeat
 echo "[$(DATE)] [Info] [Packetbeat] Installing Packetbeat..."
 apt -y install libpcap0.8 &> /dev/null
 apt -y install packetbeat=$VERSION &> /dev/null
-systemctl enable packetbeat &> /dev/null
 
 # Install Metricbeat
 echo "[$(DATE)] [Info] [Metricbeat] Installing Metricbeat..."
 apt -y install metricbeat=$VERSION &> /dev/null
-systemctl enable metricbeat &> /dev/null
 
 # Install Heartbeat
 echo "[$(DATE)] [Info] [Heartbeat] Installing Heartbeat..."
 apt -y install heartbeat-elastic=$VERSION &> /dev/null
-systemctl enable heartbeat-elastic &> /dev/null
 
 # Install Auditbeat
 echo "[$(DATE)] [Info] [Auditbeat] Installing Auditbeat..."
 apt -y install auditbeat=$VERSION &> /dev/null
-systemctl enable auditbeat &> /dev/null
 
 # Tidying Up
 
@@ -110,6 +105,10 @@ updatedb &> /dev/null
 # Prevent package upgrade
 echo "[$(DATE)] [Info] [System] Prevent package upgrade..."
 apt-mark hold elasticsearch kibana logstash filebeat packetbeat metricbeat heartbeat-elastic auditbeat &> /dev/null
+
+# Clear Disk Cache
+echo "[$(DATE)] [Info] [System] Clear disk cache..."
+sync; echo 1 > /proc/sys/vm/drop_caches
 
 # Show IPs
 echo "[$(DATE)] [Info] [System] IP Address on the machine..."
