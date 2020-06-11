@@ -15,7 +15,7 @@ IP=`ip -o addr show up primary scope global | while read -r num dev fam addr res
 VERSION="6.8.10"
 
 # Set provision folder
-PROVISION_FOLDER="/vagrant"
+PROVISION_FOLDER="/tmp"
 
 # Let's go
 
