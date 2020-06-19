@@ -12,7 +12,7 @@ DATE() {
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$(DATE)] [Info] [System] ${addr%/*}; done`
 
 # Set package version
-VERSION="7.7.1"
+VERSION="7.8.0"
 
 # Set provision folder
 PROVISION_FOLDER="/tmp"
