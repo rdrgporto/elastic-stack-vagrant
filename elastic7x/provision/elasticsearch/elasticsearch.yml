@@ -1,5 +1,5 @@
 # ======================== Elasticsearch Configuration =========================
-#
+
 # ---------------------------------- Cluster -----------------------------------
 #
 cluster.name: marvel
@@ -7,11 +7,15 @@ cluster.name: marvel
 # ------------------------------------ Node ------------------------------------
 #
 node.name: hulk
-#
+node.roles: [ master, data, ingest, transform ]
 # ----------------------------------- Paths ------------------------------------
 #
 path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch
+#
+# ----------------------------------- Memory -----------------------------------
+#
+bootstrap.memory_lock: true
 #
 # ---------------------------------- Network -----------------------------------
 #
@@ -21,3 +25,18 @@ http.port: 9200
 # --------------------------------- Discovery ----------------------------------
 #
 discovery.type: single-node
+#
+# --------------------------------- X-Pack -------------------------------------
+#
+# License
+xpack.license.self_generated.type: basic
+# Monitoring
+xpack.monitoring.enabled: true
+xpack.monitoring.collection.enabled: true
+# Security
+xpack.security.enabled: false
+# Audit
+xpack.security.audit.enabled: false
+# More Apps
+xpack.ml.enabled: false
+xpack.watcher.enabled: false
