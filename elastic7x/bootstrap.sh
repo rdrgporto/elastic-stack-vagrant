@@ -11,7 +11,7 @@ DATE() {
 # Get IP
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$(DATE)] [Info] [System] ${addr%/*}; done`
 # Set package version
-VERSION="7.10.1"
+VERSION="7.10.2"
 # Set provision folder
 PROVISION_FOLDER="/tmp"
 
@@ -81,6 +81,9 @@ apt -y install heartbeat-elastic=$VERSION &> /dev/null
 # Install Auditbeat
 echo "[$(DATE)] [Info] [Auditbeat] Installing Auditbeat..."
 apt -y install auditbeat=$VERSION &> /dev/null
+# Install Elastic Agent
+echo "[$(DATE)] [Info] [Elastic Agent] Installing Elastic Agent..."
+apt -y install elastic-agent=$VERSION &> /dev/null
 
 # Tidying Up
 # Clean unneeded packages

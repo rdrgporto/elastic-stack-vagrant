@@ -41,4 +41,5 @@ xpack.grokdebugger.enabled: true
 xpack.searchprofiler.enabled: true
 vis_type_timelion.enabled: true
 xpack.graph.enabled: false
-xpack.ml.enabled: false
+# Disable xpack.ml --> https://bit.ly/3rzRuZV
+# xpack.ml.enabled: false
