@@ -50,10 +50,10 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 7.11.0  |
-| Kibana        | 7.11.0  |
-| Logstash      | 7.11.0  |
-| Beats         | 7.11.0  |
+| Elasticsearch | 7.11.2  |
+| Kibana        | 7.11.2  |
+| Logstash      | 7.11.2  |
+| Beats         | 7.11.2  |
 
 ### Vagrant Commands
 ------
