@@ -28,24 +28,6 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 ### Versions
 ------
 
-**5x**
-
-| Product       | Version |
-| ------------- | ------- |
-| Elasticsearch | 5.6.16  |
-| Kibana        | 5.6.16  |
-| Logstash      | 5.6.16  |
-| Beats         | 5.6.16  |
-
-**6x**
-
-| Product       | Version |
-| ------------- | ------- |
-| Elasticsearch | 6.8.22  |
-| Kibana        | 6.8.22  |
-| Logstash      | 6.8.22  |
-| Beats         | 6.8.22  |
-
 **7x**
 
 | Product       | Version |
