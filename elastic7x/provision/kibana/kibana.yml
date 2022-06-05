@@ -4,6 +4,9 @@ server.port: 5601
 # Specifies the address to which the Kibana server will bind
 server.host: "0.0.0.0"
 
+# Kibana Public Url
+server.publicBaseUrl: "http://localhost:5601"
+
 # Elasticsearch Nodes
 elasticsearch.hosts: "http://localhost:9200"
 
@@ -18,7 +21,6 @@ monitoring.ui.enabled: true
 monitoring.kibana.collection.enabled: true
 
 # Security
-xpack.security.enabled: false
 xpack.security.secureCookies: false
 
 # Audit
@@ -28,18 +30,3 @@ xpack.security.audit.enabled: false
 xpack.reporting.enabled: true
 xpack.reporting.csv.enablePanelActionDownload: true
 xpack.reporting.capture.browser.chromium.disableSandbox: false
-
-# APM
-xpack.apm.enabled: true
-xpack.apm.ui.enabled: true
-
-# Maps
-xpack.maps.showMapVisualizationTypes: true
-
-# More Apps
-xpack.grokdebugger.enabled: true
-xpack.searchprofiler.enabled: true
-vis_type_timelion.enabled: true
-xpack.graph.enabled: false
-# Disable xpack.ml --> https://bit.ly/3rzRuZV
-# xpack.ml.enabled: false

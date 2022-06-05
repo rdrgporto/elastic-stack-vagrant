@@ -7,7 +7,7 @@ cluster.name: marvel
 # ------------------------------------ Node ------------------------------------
 #
 node.name: hulk
-node.roles: [ master, data, ingest, transform ]
+node.roles: [ master, data, ingest, transform, remote_cluster_client ]
 # ----------------------------------- Paths ------------------------------------
 #
 path.data: /var/lib/elasticsearch
@@ -37,6 +37,3 @@ xpack.monitoring.collection.enabled: true
 xpack.security.enabled: false
 # Audit
 xpack.security.audit.enabled: false
-# More Apps
-xpack.ml.enabled: false
-xpack.watcher.enabled: false
