@@ -11,7 +11,7 @@ DATE() {
 # Get IP
 IP=`ip -o addr show up primary scope global | while read -r num dev fam addr rest; do echo [$(DATE)] [Info] [System] ${addr%/*}; done`
 # Set package version
-VERSION="7.17.4"
+VERSION="7.17.6"
 # Set provision folder
 PROVISION_FOLDER="/tmp"
 
