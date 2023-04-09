@@ -35,21 +35,21 @@ Moreover, there are two kinds of network, **internal** and **public**. You can u
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 7.17.8  |
-| Kibana        | 7.17.8  |
-| Logstash      | 7.17.8  |
-| Beats         | 7.17.8  |
-| Elastic Agent | 7.17.8  |
+| Elasticsearch | 7.17.9  |
+| Kibana        | 7.17.9  |
+| Logstash      | 7.17.9  |
+| Beats         | 7.17.9  |
+| Elastic Agent | 7.17.9  |
 
 **8x**
 
 | Product       | Version |
 | ------------- | ------- |
-| Elasticsearch | 8.6.1   |
-| Kibana        | 8.6.1   |
-| Logstash      | 8.6.1   |
-| Beats         | 8.6.1   |
-| Elastic Agent | 8.6.1   |
+| Elasticsearch | 8.7.0   |
+| Kibana        | 8.7.0   |
+| Logstash      | 8.7.0   |
+| Beats         | 8.7.0   |
+| Elastic Agent | 8.7.0   |
 
 ### Credentials
 
