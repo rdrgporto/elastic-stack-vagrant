@@ -1,0 +1,9 @@
+---
+# tasks file for kibana
+- name: Include tasks of kibana-install
+  ansible.builtin.include_tasks:
+    file: kibana-install.yml
+
+- name: Include tasks of kibana-config
+  ansible.builtin.include_tasks:
+    file: kibana-config.yml

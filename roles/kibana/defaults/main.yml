@@ -1,0 +1,7 @@
+---
+# defaults file for kibana
+kibana_version: 7.17.9
+kibana_username: kibana
+kibana_password: $jV7!U8Pix7f
+elasticsearch_username: elastic
+elasticsearch_password: thanos

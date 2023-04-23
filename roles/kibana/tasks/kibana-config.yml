@@ -1,0 +1,48 @@
+---
+# tasks file for kibana
+- name: Replace kibana.yml
+  ansible.builtin.template:
+    src: kibana.j2
+    dest: /etc/kibana/kibana.yml
+    owner: kibana
+    group: kibana
+  notify:
+    - Restart kibana
+
+- name: Create certificates directory
+  ansible.builtin.file:
+    path: /etc/kibana/certificates
+    state: directory
+    owner: kibana
+    group: kibana
+  notify:
+    - Restart kibana
+
+- name: Copy kibana certificates
+  ansible.builtin.copy:
+    src: "certificates/{{ item }}"
+    dest: "/etc/kibana/certificates/{{ item }}"
+    owner: root
+    group: kibana
+  with_items:
+  - ca.pem
+  - kibana.key
+  - kibana.pem
+  notify:
+    - Restart kibana
+
+- name: Set password for user kibana_system in order to communicate with Elasticsearch (we can't use elastic user anymore)
+  ansible.builtin.uri:
+    url: "https://localhost:9200/_security/user/{{ kibana_username }}/_password"
+    method: POST
+    user: "{{ elasticsearch_username }}"
+    password: "{{ elasticsearch_password }}"
+    force_basic_auth: yes
+    validate_certs: no
+    body: '{ "password": "{{ kibana_password }}" }'
+    body_format: json
+  register: response
+
+- name: Print information from the previous task
+  ansible.builtin.debug:
+    var: response

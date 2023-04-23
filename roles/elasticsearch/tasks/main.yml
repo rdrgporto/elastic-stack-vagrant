@@ -1,0 +1,13 @@
+---
+# tasks file for elasticsearch
+- name: Include tasks of elasticsearch-install
+  ansible.builtin.include_tasks:
+    file: elasticsearch-install.yml
+
+- name: Include tasks of elasticsearch-config
+  ansible.builtin.include_tasks:
+    file: elasticsearch-config.yml
+
+- name: Include tasks of elasticsearch-idempotency
+  ansible.builtin.include_tasks:
+    file: elasticsearch-idempotency.yml

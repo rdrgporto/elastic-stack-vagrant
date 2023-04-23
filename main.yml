@@ -1,0 +1,28 @@
+---
+- name: Requirements
+  hosts: staging
+  become: true
+  become_user: root
+  roles:
+    - requirements
+
+- name: Install Elasticsearch
+  hosts: staging
+  become: true
+  become_user: root
+  roles:
+    - elasticsearch
+
+- name: Install Kibana
+  hosts: staging
+  become: true
+  become_user: root
+  roles:
+    - kibana
+
+- name: Install Logstash
+  hosts: staging
+  become: true
+  become_user: root
+  roles:
+    - logstash

@@ -1,0 +1,9 @@
+---
+# tasks file for elasticsearch
+- name: Create file in /var/lib/elasticsearch in order to get idempotency
+  ansible.builtin.file:
+    path: /var/lib/elasticsearch/ansible-idempotency
+    state: touch
+    owner: root
+    group: root
+    mode: '0600'
