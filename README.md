@@ -13,6 +13,7 @@ This repository was created with the aim of testing **Elastic Stack** easily. Mo
 | Elasticsearch | 7.17.9, 8.7.0 |
 | Kibana        | 7.17.9, 8.7.0 |
 | Logstash      | 7.17.9, 8.7.0 |
+| Beats         | 7.17.9, 8.7.0 |
 
 **Credentials**
 

@@ -1,0 +1,21 @@
+---
+# tasks file for beats
+- name: Install filebeat
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-amd64.deb"
+
+- name: Install metricbeat
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-{{ metricbeat_version }}-amd64.deb"
+
+- name: Install packetbeat
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-{{ packetbeat_version }}-amd64.deb"
+
+- name: Install auditbeat
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-{{ auditbeat_version }}-amd64.deb"
+
+- name: Install heartbeat
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-{{ heartbeat_version }}-amd64.deb"
