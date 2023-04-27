@@ -33,3 +33,10 @@
   become_user: root
   roles:
     - beats
+
+- name: Install Elastic Agent
+  hosts: staging
+  become: true
+  become_user: root
+  roles:
+    - elastic-agent
