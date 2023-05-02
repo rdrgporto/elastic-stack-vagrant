@@ -1,10 +1,10 @@
 ---
-elasticsearch_version: 8.7.0
-kibana_version: 8.7.0
-logstash_version: 8.7.0
-elastic_agent_version: 8.7.0
-filebeat_version: 8.7.0
-metricbeat_version: 8.7.0
-packetbeat_version: 8.7.0
-auditbeat_version: 8.7.0
-heartbeat_version: 8.7.0
+elasticsearch_version: 8.7.1
+kibana_version: 8.7.1
+logstash_version: 8.7.1
+elastic_agent_version: 8.7.1
+filebeat_version: 8.7.1
+metricbeat_version: 8.7.1
+packetbeat_version: 8.7.1
+auditbeat_version: 8.7.1
+heartbeat_version: 8.7.1

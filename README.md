@@ -8,13 +8,13 @@ This repository was created with the aim of testing **Elastic Stack** easily. Mo
 
 :eye: This repository use the latest version by default. You can change the version by modifying *inventories/staging/group_vars/staging.yml*.
 
-| Product       | Version       |
-| ------------- | ------------- |
-| Elasticsearch | 7.17.9, 8.7.0 |
-| Kibana        | 7.17.9, 8.7.0 |
-| Logstash      | 7.17.9, 8.7.0 |
-| Elastic Agent | 7.17.9, 8.7.0 |
-| Beats         | 7.17.9, 8.7.0 |
+| Product       | Version        |
+| ------------- | -------------  |
+| Elasticsearch | 7.17.10, 8.7.1 |
+| Kibana        | 7.17.10, 8.7.1 |
+| Logstash      | 7.17.10, 8.7.1 |
+| Elastic Agent | 7.17.10, 8.7.1 |
+| Beats         | 7.17.10, 8.7.1 |
 
 **Credentials**
 
