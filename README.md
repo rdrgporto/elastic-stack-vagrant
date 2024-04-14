@@ -8,19 +8,19 @@ This repository was created with the aim of testing **Elastic Stack** easily. Mo
 
 :eye: This repository use the latest version by default. You can change the version by modifying *inventories/staging/group_vars/staging.yml*.
 
-| Product       | Version        |
-| ------------- | -------------  |
-| Elasticsearch | 7.17.18, 8.12.2 |
-| Kibana        | 7.17.18, 8.12.2 |
-| Logstash      | 7.17.18, 8.12.2 |
-| Elastic Agent | 7.17.18, 8.12.2 |
-| Beats         | 7.17.18, 8.12.2 |
+| Product       | Version         |
+| ------------- | --------------- |
+| Elasticsearch | 7.17.20, 8.13.2 |
+| Kibana        | 7.17.20, 8.13.2 |
+| Logstash      | 7.17.20, 8.13.2 |
+| Elastic Agent | 7.17.20, 8.13.2 |
+| Beats         | 7.17.20, 8.13.2 |
 
 **Credentials**
 
-| User          | Password      |
-| ------------- | ------------- |
-| elastic       | thanos        |
+| User    | Password |
+| ------- | -------- |
+| elastic | thanos   |
 
 :eye: Elasticsearch and Kibana uses TLS/SSL by default.
 
