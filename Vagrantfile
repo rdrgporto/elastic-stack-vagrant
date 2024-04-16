@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
     
   # Configure VM
-  config.vm.box         = "ubuntu/focal64"
+  config.vm.box         = "ubuntu/jammy64"
   config.vm.hostname    = "elastic-stack"
   config.ssh.insert_key = true
   config.vm.network "public_network"
