@@ -1,7 +1,11 @@
 ---
 # defaults file for elasticsearch
-elasticsearch_version: 7.17.9
-elasticsearch_cluster_name: marvel
+elasticsearch_version: 8.13.2
 elasticsearch_username: elastic
 elasticsearch_password: thanos
 elasticsearch_jvm: 1g
+elasticsearch_cluster_name: marvel
+elasticsearch_port: 9200
+elasticsearch_certificate: elasticsearch.pem
+elasticsearch_certificate_key: elasticsearch.key
+elasticsearch_certificate_ca: ca.pem

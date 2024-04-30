@@ -1,40 +1,36 @@
-Elasticsearch
-=========
+## Welcome to the Elasticsearch role!
 
-Install **Elasticsearch** in Ubuntu.
+### Introduction
 
-Requirements
-------------
+------
 
-Prerequisites:
+With this role, we install and configure **Elasticsearch**.
 
-- Ubuntu
+### Tasks
 
-Variables
---------------
+------
 
-| Name                       | Description                                 |
-| -------------------------- | ------------------------------------------- |
-| elasticsearch_version      | Version of Elasticsearch                    |
-| elasticsearch_cluster_name | Name of Elasticsearch's cluster             |
-| elasticsearch_username     | Admin user                                  |
-| elasticsearch_password     | Admin password                              |
-| elasticsearch_jvm          | JVM (Java Virtual Machine) of Elasticsearch |
+Several tasks are performed in this role, the most important ones being:
 
-Example Playbook
-----------------
+- Install Elasticsearch.
+- Configure Elasticsearch.
+- Create a password for the elastic user.
+- Copy certificates to use TLS/SSL.
+- Check Elasticsearch status.
+- Create idempotence file to make Ansible idempotent.
 
-```yaml
----
-- name: Install Elasticsearch
-  hosts: staging
-  become: true
-  become_user: root
-  roles:
-    - elasticsearch
-```
+### Variables
 
-License
--------
+------
 
-Apache-2.0
+There are several important variables in this role:
+
+- **elasticsearch_version**: Elasticsearch version.
+- **elasticsearch_username**: Elasticsearch user.
+- **elasticsearch_password**: Password for the Elasticsearch user.
+- **elasticsearch_jvm**: JVM assigned to Elasticsearch.
+- **elasticsearch_cluster_name**: Elasticsearch cluster name.
+- **elasticsearch_port**: Port used by Elasticsearch.
+- **elasticsearch_certificate**: Certificate name.
+- **elasticsearch_certificate_key**: Certificate private key.
+- **elasticsearch_certificate_ca**: CA name.

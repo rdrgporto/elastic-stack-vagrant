@@ -1,6 +1,6 @@
 galaxy_info:
   author: rdrgporto
-  description: Install Elasticsearch
+  description: Install and configure Elasticsearch
 
   license: Apache-2.0
 

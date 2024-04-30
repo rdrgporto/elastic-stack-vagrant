@@ -1,10 +1,10 @@
 ---
-# tasks file for elasticsearch
-- name: Install elasticsearch
+- name: Install Elasticsearch
   ansible.builtin.apt:
     deb: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+    state: present
 
-- name: Enable elasticsearch
+- name: Enable elasticsearch service
   ansible.builtin.service:
     name: elasticsearch
-    enabled: yes
+    enabled: true
