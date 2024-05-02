@@ -1,47 +1,60 @@
 ---
-# tasks file for kibana
 - name: Replace kibana.yml
   ansible.builtin.template:
     src: kibana.j2
     dest: /etc/kibana/kibana.yml
-    owner: kibana
+    owner: root
     group: kibana
+    mode: '0660'
   notify:
-    - Restart kibana
+    - Restart kibana service
 
 - name: Create certificates directory
   ansible.builtin.file:
     path: /etc/kibana/certificates
-    state: directory
-    owner: kibana
+    owner: root
     group: kibana
+    mode: '0750'
+    state: directory
   notify:
-    - Restart kibana
+    - Restart kibana service
+
+- name: Copy CA in order to communicate with Elasticsearch
+  ansible.builtin.copy:
+    src: "{{ kibana_certificate_ca }}"
+    dest: "/etc/kibana/certificates/{{ kibana_certificate_ca }}"
+    owner: root
+    group: kibana
+    mode: '0644'
+  notify:
+    - Restart kibana service
 
 - name: Copy kibana certificates
   ansible.builtin.copy:
-    src: "certificates/{{ item }}"
+    src: "{{ item }}"
     dest: "/etc/kibana/certificates/{{ item }}"
     owner: root
     group: kibana
+    mode: '0644'
   with_items:
-  - ca.pem
   - kibana.key
   - kibana.pem
   notify:
-    - Restart kibana
+    - Restart kibana service
 
-- name: Set password for user kibana_system in order to communicate with Elasticsearch (we can't use elastic user anymore)
+- name: Set password for kibana user
   ansible.builtin.uri:
-    url: "https://localhost:9200/_security/user/{{ kibana_username }}/_password"
+    url: "https://localhost:{{ kibana_elasticsearch_port }}/_security/user/{{ kibana_username }}/_password"
     method: POST
-    user: "{{ elasticsearch_username }}"
-    password: "{{ elasticsearch_password }}"
-    force_basic_auth: yes
-    validate_certs: no
+    user: "{{ kibana_elasticsearch_username }}"
+    password: "{{ kibana_elasticsearch_password }}"
+    force_basic_auth: true
+    validate_certs: false
     body: '{ "password": "{{ kibana_password }}" }'
     body_format: json
   register: response
+  notify:
+    - Restart kibana service
 
 - name: Print information from the previous task
   ansible.builtin.debug:

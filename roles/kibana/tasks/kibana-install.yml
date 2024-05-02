@@ -1,10 +1,12 @@
 ---
-# tasks file for kibana
-- name: Install kibana
+- name: Install Kibana
   ansible.builtin.apt:
     deb: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version }}-amd64.deb"
+    state: present
+  notify:
+    - Restart kibana service
 
-- name: Enable kibana
+- name: Enable Kibana
   ansible.builtin.service:
     name: kibana
-    enabled: yes
+    enabled: true

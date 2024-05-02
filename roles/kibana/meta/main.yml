@@ -1,6 +1,6 @@
 galaxy_info:
   author: rdrgporto
-  description: Install Kibana
+  description: Install and configure Kibana
 
   license: Apache-2.0
 

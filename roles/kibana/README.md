@@ -1,40 +1,32 @@
-Kibana
-=========
+## Welcome to the Kibana role!
 
-Install **Kibana** in Ubuntu.
+### Introduction
 
-Requirements
-------------
+------
 
-Prerequisites:
+With this role, we install and configure **Kibana**.
 
-- Ubuntu
+### Tasks
 
-Variables
---------------
+------
 
-| Name                   | Description              |
-| ---------------------- | ------------------------ |
-| kibana_version         | Version of Elasticsearch |
-| kibana_username        | Kibana user              |
-| kibana_password        | Kibana user password     |
-| elasticsearch_username | Admin user               |
-| elasticsearch_password | Admin password           |
+Several tasks are performed in this role, the most important ones are:
 
-Example Playbook
-----------------
+- Install Kibana.
+- Configure Kibana.
+- Copy CA to communicate with Elasticsearch via TLS/SSL.
+- Set password for the kibana_system user.
 
-```yaml
----
-- name: Install Kibana
-  hosts: staging
-  become: true
-  become_user: root
-  roles:
-    - kibana
-```
+### Variables
 
-License
--------
+------
 
-Apache-2.0
+There are several important variables in this role:
+
+- **kibana_version**: Kibana version.
+- **kibana_elasticsearch_username**: Elasticsearch user (global variable).
+- **kibana_elasticsearch_password**: Elasticsearch user password (global variable).
+- **kibana_elasticsearch_port**: Elasticsearch port (global variable).
+- **kibana_username**: Kibana user to communicate with Elasticsearch internally.
+- **kibana_password**: Kibana user password to communicate with Elasticsearch internally.
+- **kibana_certificate_ca**: CA name to communicate with Elasticsearch via TLS/SSL.
