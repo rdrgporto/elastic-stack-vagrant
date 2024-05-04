@@ -1,0 +1,101 @@
+---
+- name: Set user logstash service as root
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/logstash.service
+    regexp: '^User='
+    line: 'User=root'
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Reload Systemd
+
+- name: Set group logstash service as root
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/logstash.service
+    regexp: '^Group='
+    line: 'Group=root'
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Reload Systemd
+
+- name: Disable output to Syslog
+  ansible.builtin.blockinfile:
+    path: /lib/systemd/system/logstash.service
+    insertafter: '^LimitNOFILE'
+    block: |
+      StandardOutput=null
+      StandardError=syslog
+  notify:
+    - Reload Systemd
+
+- name: Create certificates directory
+  ansible.builtin.file:
+    path: /etc/logstash/certificates
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  notify:
+    - Restart logstash service
+
+- name: Copy CA in order to communicate with Elasticsearch
+  ansible.builtin.copy:
+    src: "{{ logstash_certificate_ca }}"
+    dest: "/etc/logstash/certificates/{{ logstash_certificate_ca }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Restart logstash service
+
+- name: Replace logstash.yml
+  ansible.builtin.template:
+    src: logstash.j2
+    dest: /etc/logstash/logstash.yml
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Restart logstash service
+
+- name: Replace jvm.options
+  ansible.builtin.template:
+    src: jvm.options.j2
+    dest: /etc/logstash/jvm.options
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Restart logstash service
+
+- name: Replace pipelines.yml
+  ansible.builtin.copy:
+    src: pipelines.yml
+    dest: /etc/logstash/pipelines.yml
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Restart logstash service
+
+- name: Remove logstash-sample.conf
+  ansible.builtin.file:
+    path: /etc/logstash/logstash-sample.conf
+    state: absent
+  notify:
+    - Restart logstash service
+
+- name: Copy pipelines to /etc/logstash/conf.d
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: /etc/logstash/conf.d/{{ item }}.conf
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - heartbeat
+  notify:
+    - Restart logstash service

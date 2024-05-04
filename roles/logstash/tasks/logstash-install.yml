@@ -1,0 +1,12 @@
+---
+- name: Install Logstash
+  ansible.builtin.apt:
+    deb: "https://artifacts.elastic.co/downloads/logstash/logstash-{{ logstash_version }}-amd64.deb"
+    state: present
+  notify:
+    - Restart logstash service
+
+- name: Enable Logstash
+  ansible.builtin.service:
+    name: logstash
+    enabled: true

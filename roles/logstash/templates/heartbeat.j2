@@ -1,0 +1,19 @@
+input {
+ heartbeat { }
+}
+
+filter {
+}
+
+output {
+ elasticsearch {
+  hosts => [ "https://localhost:9200" ]
+  index => "heartbeat"
+  action => "create"
+  user => "{{ logstash_elasticsearch_username }}"
+  password => "{{ logstash_elasticsearch_password }}"
+  ssl_enabled => true
+  ssl_verification_mode => full
+  ssl_certificate_authorities => "/etc/logstash/certificates/{{ logstash_certificate_ca }}"
+ }
+}

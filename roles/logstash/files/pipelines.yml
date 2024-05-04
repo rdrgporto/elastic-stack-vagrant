@@ -1,0 +1,3 @@
+---
+- pipeline.id: heartbeat
+  path.config: "/etc/logstash/conf.d/heartbeat.conf"

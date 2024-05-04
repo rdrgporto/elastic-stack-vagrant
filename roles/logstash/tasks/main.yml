@@ -1,5 +1,9 @@
 ---
 # tasks file for logstash
-- name: Install logstash
-  ansible.builtin.apt:
-    deb: "https://artifacts.elastic.co/downloads/logstash/logstash-{{ logstash_version }}-amd64.deb"
+- name: Include tasks of logstash-install
+  ansible.builtin.include_tasks:
+    file: logstash-install.yml
+
+- name: Include tasks of logstash-config
+  ansible.builtin.include_tasks:
+    file: logstash-config.yml

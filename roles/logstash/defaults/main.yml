@@ -1,3 +1,8 @@
 ---
 # defaults file for logstash
-logstash_version: 7.17.9
+logstash_version: 8.13.2
+logstash_elasticsearch_username: "{{ elasticsearch_username }}"
+logstash_elasticsearch_password: "{{ elasticsearch_password }}"
+logstash_jvm: 1g
+logstash_certificate_ca: ca.pem
+logstash_elasticsearch_port: "{{ elasticsearch_port }}"

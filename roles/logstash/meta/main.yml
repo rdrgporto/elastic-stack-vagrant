@@ -1,6 +1,6 @@
 galaxy_info:
   author: rdrgporto
-  description: Install Logstash
+  description: Install and configure Logstash
 
   license: Apache-2.0
 

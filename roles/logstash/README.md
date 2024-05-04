@@ -1,36 +1,30 @@
-Logstash
-=========
+## Welcome to the Logstash role!
 
-Install **Logstash** in Ubuntu.
+### Introduction
 
-Requirements
-------------
+------
 
-Prerequisites:
+With this role, we install and configure **Logstash**.
 
-- Ubuntu
+### Tasks
 
-Variables
---------------
+------
 
-| Name             | Description         |
-| ---------------- | ------------------- |
-| logstash_version | Version of Logstash |
+Several tasks are performed in this role, the most important ones are:
 
-Example Playbook
-----------------
+- Install Logstash.
+- Configure Logstash.
+- Copy CA to communicate with Elasticsearch via TLS/SSL.
 
-```yaml
----
-- name: Install Logstash
-  hosts: staging
-  become: true
-  become_user: root
-  roles:
-    - logstash
-```
+### Variables
 
-License
--------
+------
 
-Apache-2.0
+There are several important variables in this role:
+
+- **logstash_version**: Logstash version.
+- **logstash_elasticsearch_username**: Elasticsearch user (global variable).
+- **logstash_elasticsearch_password**: Elasticsearch user password (global variable).
+- **logstash_elasticsearch_port**: Elasticsearch port (global variable).
+- **logstash_jvm**: JVM assigned to Logstash.
+- **logstash_certificate_ca**: CA name to communicate with Elasticsearch via TLS/SSL.
