@@ -1,6 +1,6 @@
 ---
 # defaults file for kibana
-kibana_version: 8.13.3
+kibana_version: 8.14.3
 kibana_elasticsearch_username: "{{ elasticsearch_username }}"
 kibana_elasticsearch_password: "{{ elasticsearch_password }}"
 kibana_elasticsearch_port: "{{ elasticsearch_port }}"
