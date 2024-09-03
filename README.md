@@ -10,11 +10,11 @@ This repository was created with the aim of testing **Elastic Stack** easily. Mo
 
 | Product       | Version         |
 | ------------- | --------------- |
-| Elasticsearch | 7.17.22, 8.14.3 |
-| Kibana        | 7.17.22, 8.14.3 |
-| Logstash      | 7.17.22, 8.14.3 |
-| Elastic Agent | 7.17.22, 8.14.3 |
-| Beats         | 7.17.22, 8.14.3 |
+| Elasticsearch | 7.17.23, 8.15.0 |
+| Kibana        | 7.17.23, 8.15.0 |
+| Logstash      | 7.17.23, 8.15.0 |
+| Elastic Agent | 7.17.23, 8.15.0 |
+| Beats         | 7.17.23, 8.15.0 |
 
 **Credentials**
 
