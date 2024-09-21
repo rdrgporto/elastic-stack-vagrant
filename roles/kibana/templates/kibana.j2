@@ -22,10 +22,28 @@ xpack.security.encryptionKey: "ovswhfannlajtgvvjewqwgulywdbpudq"
 xpack.reporting.encryptionKey: "mevhrpewrtunoakriahdyzowlqlvhjou"
 xpack.encryptedSavedObjects.encryptionKey: "ubadnnhnuvgyrxveohfgyxpxokbkdwge"
 
+# Logging
+logging:
+  appenders:
+    file:
+      type: file
+      fileName: /var/log/kibana/kibana.log
+      layout:
+        type: pattern
+  root:
+    level: warn
+    appenders: [file]
+
+# Monitoring
+monitoring.ui.enabled: true
+
+# Disable Cross Cluster Search
+monitoring.ui.ccs.enabled: false
+
 # Security
 xpack.security.secureCookies: true
 
 # Reporting
 xpack.reporting.enabled: true
-xpack.reporting.csv.enablePanelActionDownload: true
+xpack.reporting.roles.enabled: false
 xpack.reporting.capture.browser.chromium.disableSandbox: false
