@@ -37,8 +37,8 @@
     group: kibana
     mode: '0644'
   with_items:
-  - kibana.key
-  - kibana.pem
+    - kibana.key
+    - kibana.pem
   notify:
     - Restart kibana service
 

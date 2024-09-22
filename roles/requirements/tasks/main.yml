@@ -3,8 +3,8 @@
 - name: Install packages to allow apt to use a repository over HTTPS
   ansible.builtin.apt:
     pkg:
-    - ca-certificates
-    - curl
-    - gnupg
-    - lsb-release
-    - bash-completion
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+      - bash-completion
