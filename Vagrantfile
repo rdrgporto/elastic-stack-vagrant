@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   # Configure Virtualbox
   config.vm.provider "virtualbox" do |vb, override|
     vb.cpus   = 2
-    vb.memory = 4096
+    vb.memory = 5120
     vb.gui    = false
     vb.name   = "elastic-stack"
   end
