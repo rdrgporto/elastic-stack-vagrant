@@ -1,0 +1,10 @@
+---
+# tasks file for fleet_server
+- name: Include tasks of fleet-server-upload-policy
+  ansible.builtin.include_tasks: fleet-server-upload-policy.yml
+
+- name: Include tasks of fleet-server-install
+  ansible.builtin.include_tasks: fleet-server-install.yml
+
+- name: Include tasks of fleet-server-idempotency
+  ansible.builtin.include_tasks: fleet-server-idempotency.yml

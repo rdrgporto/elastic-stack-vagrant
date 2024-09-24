@@ -1,5 +1,0 @@
----
-# tasks file for elastic-agent
-- name: Install elastic agent
-  ansible.builtin.apt:
-    deb: "https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-{{ elastic_agent_version }}-amd64.deb"

@@ -1,0 +1,15 @@
+---
+# defaults file for fleet_server
+fleet_server_version: "8.15.1"
+fleet_server_port: 8220
+fleet_server_policy_id: c4f8a6d2-3e77-4f1e-a66b-9b27e7d92c5b
+fleet_server_policy_name: fleet-server
+fleet_server_elasticsearch_certificate_ca: ca.pem
+fleet_server_certificate: fleet-server.pem
+fleet_server_certificate_key: fleet-server.key
+fleet_server_elasticsearch_username: "{{ elasticsearch_username }}"
+fleet_server_elasticsearch_password: "{{ elasticsearch_password }}"
+fleet_server_elasticsearch_port: "{{ elasticsearch_port }}"
+fleet_server_download_dir: "/tmp"
+fleet_server_certificates_dir: "/opt/Elastic/Certificates"
+fleet_server_idempotency_path: /opt/Elastic/ansible-idempotency

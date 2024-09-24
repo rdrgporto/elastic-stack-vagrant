@@ -20,23 +20,9 @@
   roles:
     - kibana
 
-- name: Install Logstash
+- name: Install Fleet Server
   hosts: staging
   become: true
   become_user: root
   roles:
-    - logstash
-
-- name: Install Beats
-  hosts: staging
-  become: true
-  become_user: root
-  roles:
-    - beats
-
-- name: Install Elastic Agent
-  hosts: staging
-  become: true
-  become_user: root
-  roles:
-    - elastic-agent
+    - fleet_server

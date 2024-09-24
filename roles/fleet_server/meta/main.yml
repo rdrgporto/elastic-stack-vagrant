@@ -1,6 +1,6 @@
 galaxy_info:
   author: rdrgporto
-  description: Install Elastic Agent
+  description: Install and configure Fleet Server
 
   license: Apache-2.0
 

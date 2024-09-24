@@ -1,0 +1,62 @@
+---
+- name: Create certificates directory
+  ansible.builtin.file:
+    path: "{{ fleet_server_certificates_dir }}"
+    owner: root
+    group: root
+    mode: '0755'
+    state: directory
+
+- name: Copy certificates
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ fleet_server_certificates_dir }}"
+    owner: root
+    group: root
+    mode: '0644'
+  loop:
+    - "{{ fleet_server_certificate }}"
+    - "{{ fleet_server_certificate_key }}"
+    - "{{ fleet_server_elasticsearch_certificate_ca }}"
+  notify:
+    - Restart elastic agent service
+
+- name: Fetch enrollment token from Kibana
+  ansible.builtin.uri:
+    url: "https://localhost:5601/api/fleet/service_tokens"
+    method: POST
+    force_basic_auth: true
+    validate_certs: false
+    user: "{{ fleet_server_elasticsearch_username }}"
+    password: "{{ fleet_server_elasticsearch_password }}"
+    headers:
+      kbn-xsrf: true
+    return_content: true
+  register: enrollment_api_response
+
+- name: Extract enrollment token from response
+  ansible.builtin.set_fact:
+    enrollment_token: "{{ enrollment_api_response.json.value }}"
+
+- name: Download and extract Elastic Agent tarball
+  ansible.builtin.unarchive:
+    src: "https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-{{ fleet_server_version }}-linux-x86_64.tar.gz"
+    dest: "{{ fleet_server_download_dir }}"
+    remote_src: true
+    creates: "{{ fleet_server_idempotency_path }}"
+
+- name: Install Fleet Server
+  ansible.builtin.shell: |
+    "{{ fleet_server_download_dir }}/elastic-agent-{{ fleet_server_version }}-linux-x86_64/elastic-agent" install \
+    --url="https://localhost:{{ fleet_server_port }}" \
+    --fleet-server-es="https://localhost:{{ fleet_server_elasticsearch_port }}" \
+    --fleet-server-service-token="{{ enrollment_token }}" \
+    --fleet-server-policy="{{ fleet_server_policy_id }}" \
+    --fleet-server-port="{{ fleet_server_port }}" \
+    --fleet-server-es-ca="{{ fleet_server_certificates_dir }}/{{ fleet_server_elasticsearch_certificate_ca }}" \
+    --fleet-server-cert="{{ fleet_server_certificates_dir }}/{{ fleet_server_certificate }}" \
+    --fleet-server-cert-key="{{ fleet_server_certificates_dir }}/{{ fleet_server_certificate_key }}" \
+    --certificate-authorities="{{ fleet_server_certificates_dir }}/{{ fleet_server_elasticsearch_certificate_ca }}" \
+    --non-interactive
+  args:
+    creates: "{{ fleet_server_idempotency_path }}"

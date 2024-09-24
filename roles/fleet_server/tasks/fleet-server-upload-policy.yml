@@ -1,0 +1,67 @@
+---
+- name: Change Elastic Agents default output
+  ansible.builtin.uri:
+    url: "https://localhost:5601/api/fleet/outputs/fleet-default-output"
+    method: PUT
+    force_basic_auth: true
+    validate_certs: false
+    user: "{{ fleet_server_elasticsearch_username }}"
+    password: "{{ fleet_server_elasticsearch_password }}"
+    headers:
+      kbn-xsrf: "true"
+    body_format: json
+    body:
+      name: "default"
+      is_default: true
+      is_default_monitoring: true
+      hosts: ["https://localhost:{{ fleet_server_elasticsearch_port }}"]
+      type: "elasticsearch"
+      preset: "balanced"
+      ssl:
+        certificate_authorities:
+          - "{{ lookup('file', fleet_server_elasticsearch_certificate_ca) }}"
+    status_code: 200,201
+  register: kibana_response
+  retries: 30
+  delay: 10
+  until: kibana_response.status == 200
+
+- name: Verify existence of Fleet policy in Kibana
+  ansible.builtin.uri:
+    url: "https://localhost:5601/api/fleet/agent_policies/{{ fleet_server_policy_id }}"
+    method: GET
+    force_basic_auth: true
+    validate_certs: false
+    user: "{{ fleet_server_elasticsearch_username }}"
+    password: "{{ fleet_server_elasticsearch_password }}"
+    headers:
+      kbn-xsrf: true
+    status_code: 200,404,503
+  register: policy_check
+
+- name: Upload Fleet policy to Kibana
+  ansible.builtin.uri:
+    url: "https://localhost:5601/api/fleet/agent_policies?sys_monitoring=true"
+    method: POST
+    force_basic_auth: true
+    validate_certs: false
+    user: "{{ fleet_server_elasticsearch_username }}"
+    password: "{{ fleet_server_elasticsearch_password }}"
+    headers:
+      kbn-xsrf: "true"
+    body_format: json
+    body:
+      monitoring_enabled:
+        - "logs"
+        - "metrics"
+      id: "{{ fleet_server_policy_id }}"
+      is_protected: false
+      namespace: "default"
+      name: "{{ fleet_server_policy_name }}"
+      has_fleet_server: true
+    status_code: 200,201
+  register: upload_policy
+  retries: 30
+  delay: 10
+  until: upload_policy.status == 200
+  when: policy_check.status == 404
