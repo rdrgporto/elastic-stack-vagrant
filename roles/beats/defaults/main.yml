@@ -1,7 +1,0 @@
----
-# defaults file for beats
-filebeat_version: 8.15.1
-metricbeat_version: 8.15.1
-packetbeat_version: 8.15.1
-auditbeat_version: 8.15.1
-heartbeat_version: 8.15.1
