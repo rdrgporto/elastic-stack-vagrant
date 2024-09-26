@@ -3,7 +3,7 @@
 elasticsearch_version: 8.15.1
 kibana_version: 8.15.1
 logstash_version: 8.15.1
-elastic_agent_version: 8.15.1
+fleet_server_version: 8.15.1
 filebeat_version: 8.15.1
 metricbeat_version: 8.15.1
 packetbeat_version: 8.15.1
@@ -13,6 +13,6 @@ heartbeat_version: 8.15.1
 # Elasticsearch
 elasticsearch_username: elastic
 elasticsearch_password: thanos
-elasticsearch_jvm: 1g
+elasticsearch_jvm: 512m
 elasticsearch_cluster_name: marvel
 elasticsearch_port: 9200
