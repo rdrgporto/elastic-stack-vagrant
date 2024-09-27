@@ -1,0 +1,13 @@
+---
+# tasks file for filebeat
+- name: Download .deb package
+  ansible.builtin.get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-amd64.deb"
+    dest: "/tmp/filebeat-{{ filebeat_version }}-amd64.deb"
+    owner: root
+    group: root
+    mode: '0750'
+
+- name: Install .deb package
+  ansible.builtin.apt:
+    deb: "/tmp/filebeat-{{ filebeat_version }}-amd64.deb"
