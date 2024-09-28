@@ -1,0 +1,13 @@
+---
+# tasks file for metricbeat
+- name: Download .deb package
+  ansible.builtin.get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-{{ metricbeat_version }}-amd64.deb"
+    dest: "/tmp/metricbeat-{{ metricbeat_version }}-amd64.deb"
+    owner: root
+    group: root
+    mode: '0750'
+
+- name: Install .deb package
+  ansible.builtin.apt:
+    deb: "/tmp/metricbeat-{{ metricbeat_version }}-amd64.deb"
