@@ -1,0 +1,13 @@
+---
+# tasks file for auditbeat
+- name: Download .deb package
+  ansible.builtin.get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-{{ auditbeat_version }}-amd64.deb"
+    dest: "/tmp/auditbeat-{{ auditbeat_version }}-amd64.deb"
+    owner: root
+    group: root
+    mode: '0750'
+
+- name: Install .deb package
+  ansible.builtin.apt:
+    deb: "/tmp/auditbeat-{{ auditbeat_version }}-amd64.deb"
