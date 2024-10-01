@@ -1,0 +1,13 @@
+---
+# tasks file for packetbeat
+- name: Download .deb package
+  ansible.builtin.get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-{{ packetbeat_version }}-amd64.deb"
+    dest: "/tmp/packetbeat-{{ packetbeat_version }}-amd64.deb"
+    owner: root
+    group: root
+    mode: '0750'
+
+- name: Install .deb package
+  ansible.builtin.apt:
+    deb: "/tmp/packetbeat-{{ packetbeat_version }}-amd64.deb"
