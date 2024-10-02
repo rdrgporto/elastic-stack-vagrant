@@ -1,77 +1,139 @@
-# Welcome to Elastic Stack Vagrant!
+# 🎉 Welcome to Elastic Stack Vagrant! 🎉
 
-## Introduction
+## 🚀 Introduction
 
-This repository was created with the aim of testing **Elastic Stack** easily. More information about this stack: [Elastic](https://www.elastic.co/)
+This repository was created to help you easily test the **Elastic Stack** in a Vagrant environment. It's perfect for experimenting with the latest versions of Elasticsearch, Kibana, and Fleet Server with Elastic Agent, following the **current architecture** promoted by Elastic for observability and security solutions.
 
-**Compatibility**
+💡 **Architecture Overview**: By default, this setup deploys:
+- **Elasticsearch**: The heart of the Elastic Stack for search and data storage.
+- **Kibana**: The visualization layer that provides powerful analytics and dashboards.
+- **Fleet Server** with **Elastic Agent**: A centralized agent management solution for gathering metrics, logs, and security data.
 
-:eye: This repository use the latest version by default. You can change the version by modifying *inventories/staging/group_vars/staging.yml*.
+Additionally, you have the flexibility to deploy other components such as:
+- **Logstash**: For advanced data processing pipelines.
+- **Beats** (like **Metricbeat**, **Auditbeat**, etc.): Lightweight data shippers that collect and forward data to Elasticsearch.
 
-| Product       | Version         |
-| ------------- | --------------- |
-| Elasticsearch | 7.17.23, 8.15.1 |
-| Kibana        | 7.17.23, 8.15.1 |
-| Logstash      | 7.17.23, 8.15.1 |
-| Elastic Agent | 7.17.23, 8.15.1 |
-| Beats         | 7.17.23, 8.15.1 |
+This setup is automated using **Ansible**, ensuring that the deployment and configuration of each Elastic Stack component is smooth and repeatable. Ansible manages provisioning, making it easier to get your environment up and running with minimal effort.
 
-**Credentials**
+For more information about Elastic Stack components, check the official [Elastic website](https://www.elastic.co/).
+
+## 🛠️ Compatibility
+
+This repository use the latest version by default. You can change the version by modifying `inventories/staging/group_vars/staging.yml`.
+
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-7.17.23%20%7C%208.15.1-green)
+![Kibana](https://img.shields.io/badge/Kibana-7.17.23%20%7C%208.15.1-green)
+![Fleet Server](https://img.shields.io/badge/Fleet%20Server-7.17.23%20%7C%208.15.1-green)
+![Logstash](https://img.shields.io/badge/Logstash-7.17.23%20%7C%208.15.1-green)
+![Beats](https://img.shields.io/badge/Beats-7.17.23%20%7C%208.15.1-green)
+
+💡 **Note:** Elasticsearch and Kibana are configured to use **TLS/SSL** by default for enhanced security.
+
+## 🔐 Credentials
+
+To access the Elastic Stack services, use the following credentials:
 
 | User    | Password |
 | ------- | -------- |
 | elastic | thanos   |
 
-:eye: Elasticsearch and Kibana uses TLS/SSL by default.
+## 🏁 Getting Started
 
-## First Steps
+### Prerequisites
 
-* Download **Vagrant** : [Link](https://www.vagrantup.com/downloads.html)
+Before you can get started, you'll need to install the following software:
 
-- Download **Virtualbox**: [Link](https://www.virtualbox.org/wiki/Downloads)
+- **Vagrant**: Download it from [here](https://www.vagrantup.com/downloads.html) 🛠️
+- **VirtualBox**: Get it from [here](https://www.virtualbox.org/wiki/Downloads) 💻
 
-## Up and SSH
+### 💻 Up and SSH
 
-### <u>Install Git</u>
+#### Install Git
 
-- #### Linux :penguin:
+Depending on your operating system, follow these steps to install Git:
 
-```bash
-sudo apt -y install git --> Ubuntu/Debian
-sudo yum -y install git --> CentOS/RedHat
+- **Linux** :penguin:
 
-git clone https://github.com/rdrgporto/elastic-stack-vagrant.git
-```
+    For Ubuntu/Debian:
+    ```bash
+    sudo apt -y install git
+    ```
 
-- #### Windows :checkered_flag:
+    For CentOS/RedHat:
+    ```bash
+    sudo yum -y install git
+    ```
 
-  Download [Git Bash](https://gitforwindows.org/) and install it:
+    Then, clone the repository:
+    ```bash
+    git clone https://github.com/rdrgporto/elastic-stack-vagrant.git
+    ```
 
-```bash
-git clone https://github.com/rdrgporto/elastic-stack-vagrant.git
-```
+- **Windows** :checkered_flag:
 
-### <u>Run Vagrant</u> :rocket:
+    Download and install [Git Bash](https://gitforwindows.org/), then run:
+    ```bash
+    git clone https://github.com/rdrgporto/elastic-stack-vagrant.git
+    ```
 
-**Vagrant** is configured with two kinds of network, **internal** and **public**. You can use **public network** in order to login via any kind of **SSH client** ([Putty](https://www.putty.org/), [MobaXterm](https://mobaxterm.mobatek.net/), [Termius](https://www.termius.com/)):
+### 🚀 Running Vagrant
 
-```bash
-cd /home/rdrgporto/elastic-stack-vagrant/
-vagrant up
-```
+Vagrant is configured with both **internal** and **public** network options. You can use the **public network** to log in via any **SSH client** like [Putty](https://www.putty.org/), [MobaXterm](https://mobaxterm.mobatek.net/), or [Termius](https://www.termius.com/).
 
-If everything was fine, login via **SSH**:
+To start the virtual machine:
 
-```bash
-vagrant ssh
-```
+- **Linux/MacOS**:
+    ```bash
+    cd /path/to/your/elastic-stack-vagrant/
+    vagrant up
+    ```
 
-## Vagrant Commands
+- **Windows**:
+    Open **Git Bash** or **Command Prompt** and navigate to the project folder:
+    ```bash
+    cd C:/path/to/your/elastic-stack-vagrant/
+    vagrant.exe up
+    ```
 
-```bash
-vagrant up        : start vm
-vagrant destroy   : remove/delete vm
-vagrant ssh       : connect to vm
-vagrant halt      : shutdown vm
-vagrant provision : relaunch Ansible
-```
+Once it's up and running, you can log in via SSH:
+
+- **Linux/MacOS**:
+    ```bash
+    vagrant ssh
+    ```
+
+- **Windows**:
+    Using **Git Bash** or **Command Prompt**:
+    ```bash
+    vagrant.exe ssh
+    ```
+
+## 🔄 Common Vagrant Commands
+
+Here are some useful Vagrant commands to manage your virtual machine:
+
+- **Linux/MacOS**:
+    ```bash
+    vagrant up        # Start the virtual machine
+    vagrant destroy   # Remove/delete the virtual machine
+    vagrant ssh       # Connect to the virtual machine via SSH
+    vagrant halt      # Shutdown the virtual machine
+    vagrant provision # Re-run Ansible provisioning
+    ```
+
+- **Windows** (using **Git Bash** or **Command Prompt**):
+    ```bash
+    vagrant.exe up        # Start the virtual machine
+    vagrant.exe destroy   # Remove/delete the virtual machine
+    vagrant.exe ssh       # Connect to the virtual machine via SSH
+    vagrant.exe halt      # Shutdown the virtual machine
+    vagrant.exe provision # Re-run Ansible provisioning
+    ```
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests to improve this project. Let's make testing the **Elastic Stack** easier together! 💡
+
+## 📄 License
+
+This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for more details.
