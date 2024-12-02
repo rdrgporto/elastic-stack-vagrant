@@ -1,6 +1,6 @@
 ---
 # defaults file for elasticsearch
-elasticsearch_version: 8.15.5
+elasticsearch_version: 8.16.1
 elasticsearch_username: elastic
 elasticsearch_password: thanos
 elasticsearch_jvm: 512m

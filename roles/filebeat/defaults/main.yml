@@ -1,3 +1,3 @@
 ---
 # defaults file for filebeat
-filebeat_version: 8.15.5
+filebeat_version: 8.16.1
