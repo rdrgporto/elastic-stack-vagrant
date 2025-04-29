@@ -1,3 +1,3 @@
 ---
 # defaults file for auditbeat
-auditbeat_version: 8.17.4
+auditbeat_version: 8.18.0

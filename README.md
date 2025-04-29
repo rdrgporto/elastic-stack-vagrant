@@ -21,11 +21,11 @@ For more information about Elastic Stack components, check the official [Elastic
 
 This repository use the latest version by default. You can change the version by modifying `inventories/staging/group_vars/staging.yml`.
 
-![Elasticsearch](https://img.shields.io/badge/Elasticsearch-7.17.28%20%7C%208.17.4-green)
-![Kibana](https://img.shields.io/badge/Kibana-7.17.28%20%7C%208.17.4-green)
-![Fleet Server](https://img.shields.io/badge/Fleet%20Server-7.17.28%20%7C%208.17.4-green)
-![Logstash](https://img.shields.io/badge/Logstash-7.17.28%20%7C%208.17.4-green)
-![Beats](https://img.shields.io/badge/Beats-7.17.28%20%7C%208.17.4-green)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-7.17.28%20%7C%208.18.0-green)
+![Kibana](https://img.shields.io/badge/Kibana-7.17.28%20%7C%208.18.0-green)
+![Fleet Server](https://img.shields.io/badge/Fleet%20Server-7.17.28%20%7C%208.18.0-green)
+![Logstash](https://img.shields.io/badge/Logstash-7.17.28%20%7C%208.18.0-green)
+![Beats](https://img.shields.io/badge/Beats-7.17.28%20%7C%208.18.0-green)
 
 💡 **Note:** Elasticsearch and Kibana are configured to use **TLS/SSL** by default for enhanced security.
 

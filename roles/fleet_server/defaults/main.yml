@@ -1,6 +1,6 @@
 ---
 # defaults file for fleet_server
-fleet_server_version: "8.17.4"
+fleet_server_version: "8.18.0"
 fleet_server_port: 8220
 fleet_server_policy_id: c4f8a6d2-3e77-4f1e-a66b-9b27e7d92c5b
 fleet_server_policy_name: fleet-server
