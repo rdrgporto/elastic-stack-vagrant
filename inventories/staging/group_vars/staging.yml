@@ -1,14 +1,14 @@
 ---
 # Version
-elasticsearch_version: 8.18.0
-kibana_version: 8.18.0
-logstash_version: 8.18.0
-fleet_server_version: 8.18.0
-filebeat_version: 8.18.0
-metricbeat_version: 8.18.0
-packetbeat_version: 8.18.0
-auditbeat_version: 8.18.0
-heartbeat_version: 8.18.0
+elasticsearch_version: 8.18.2
+kibana_version: 8.18.2
+logstash_version: 8.18.2
+fleet_server_version: 8.18.2
+filebeat_version: 8.18.2
+metricbeat_version: 8.18.2
+packetbeat_version: 8.18.2
+auditbeat_version: 8.18.2
+heartbeat_version: 8.18.2
 
 # Elasticsearch
 elasticsearch_username: elastic
