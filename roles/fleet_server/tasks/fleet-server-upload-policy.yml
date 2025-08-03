@@ -59,9 +59,9 @@
       namespace: "default"
       name: "{{ fleet_server_policy_name }}"
       has_fleet_server: true
-    status_code: 200,201
+    status_code: 200,201,409
   register: upload_policy
   retries: 30
   delay: 10
-  until: upload_policy.status == 200
+  until: upload_policy.status == 200 or upload_policy.status == 409
   when: policy_check.status == 404
